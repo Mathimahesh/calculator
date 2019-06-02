@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>CALCULATOR</title>    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .button{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            margin: 5px;
+            cursor: pointer;
+            background: #da284fd9;
+            border: none;
+            color:black;
+            border-radius: 7px 5px 5px 7px;
+        }
+        .view{
+            width: 240px;
+            margin: 5px;
+            padding: 8px;
+            border-left: 50px;
+            font-size: 20px;
+            color: #171213ed;
+            border: 2px solid black;
+            border-radius: 7px 5px 5px 7px;
+        }
+        .main{
+            margin-top:1%;
+           margin-top : 100px;
+           margin-left: 500px;
+            width: 25%;
+            height: 53%;
+        }
+        @media screen and (max-width: 768px){
+            .main{
+                margin-left: 80px;
+            }
+        }
+        body{
+            background-image: url(backimg.jpg);
+        }
+    </style>
+    <script>
+        function insert(num){
+            document.form.view.value = document.form.view.value+num;
+        }
+        function equal(){
+            var exp = document.form.view.value;
+            document.form.view.value = eval(exp);
+        }
+    function c(){
+        document.form.view.value = "";
+    }
+    function back(){
+        var value = document.form.view.value;
+        document.form.view.value = value.substring(0,value.length-1);
+    }
+    </script>
+    
+</head>
+<body>
+    <div class="main">
+        <form name="form">
+            <input class="view" name="view">
+        </form>
+        <table>
+            <tr>
+            <td><input class="button" type="button" value="C" onclick="c()"></td>
+            <td><input class="button" type="button" value="<" onclick="back()"></td>
+            <td><input class="button" type="button" value="/" onclick="insert('/')"></td>
+            <td><input class="button"type="button" value="*" onclick="insert('*')"></td>
+            </tr>
+            <tr>
+            <td><input class="button" type="button" value="7" onclick="insert(7)"></td>
+            <td><input class="button" type="button" value="8" onclick="insert(8)"></td>
+            <td><input class="button" type="button" value="9" onclick="insert(9)"></td>
+            <td><input class="button" type="button" value="-" onclick="insert('-')"></td>
+            </tr>
+            <tr>
+            <td><input class="button" type="button" value="4" onclick="insert(4)"></td>
+            <td><input class="button" type="button" value="5" onclick="insert(5)"></td>
+            <td><input class="button" type="button" value="6" onclick="insert(6)"></td>
+            <td><input class="button" type="button" value="+" onclick="insert('+')"></td>
+            </tr>
+            <tr>
+            <td><input class="button" type="button" value="1" onclick="insert(1)"></td>
+            <td><input class="button" type="button" value="2" onclick="insert(2)"></td>
+            <td><input class="button" type="button" value="3" onclick="insert(3)"></td>
+            <td rowspan="5"><input class="button" style="height: 110px;" type="button" value="=" onclick="equal()" ></td>
+            </tr>
+            <tr>
+            <td colspan="2"><input style = "width:110px;"class="button" type="button" value="0" onclick="insert(0)"></td>
+            <td><input class="button" type="button" value="." onclick="insert('.')" ></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
